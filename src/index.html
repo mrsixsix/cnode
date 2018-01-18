@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="name"></div>
+
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		$.ajax({
+			url:"https://cnodejs.org/api/v1/accesstoken",
+			method:"POST",
+			data:'{"accesstoken":"9948d556-1825-416f-934f-b3ce046403e3"}',
+			contentType:"application/json",		
+		}).done(function (data) {
+			console.log(data)
+		}).fail(function (error) {
+			console.log(error)
+		})
+
+fetch("https://api.github.com/users/sunny-zz").then(function (data) {
+	console.log(data)
+	return data.json()
+}).then(function (obj) {
+	console.log(obj)
+}).catch(function () {
+	console.log("fetch 失败")
+})
+
+// var time =new Promise(function (resolve,reject) {
+// 	setTimeout(function () {
+// 		console.log("正在干活呢")
+// 		resolve()
+
+// 	},2000)
+// }).then(function () {
+// 	console.log("终于干完了")
+// })
+
+// var time =new Promise(function (resolve,reject) {
+// 	setTimeout(function () {
+// 		console.log("正在干活呢")
+// 		resolve(123)
+
+// 	},2000)
+// })
+// time.then(function (num) {
+// 	console.log(num)
+// 	console.log("终于干完了")
+//
+// })
+// time.catch(function () {
+
+// 	console.log("干不完")
+//
+// })
+
+
+// $.ajax({
+// 			url:"https://cnodejs.org/api/v1/accesstoken",
+// 			method:"POST",
+// 			data:'{"accesstoken":"9948d556-1825-416f-934f-b3ce046403e3"}',
+// 			contentType:"application/json",
+// 			success:function (data,state,xhr) {
+// 				console.log(data,state,xhr)
+				
+// 			},		
+// 			error:function (error) {
+// 				console.log(error)
+// 				console.log("获取数据失败")
+				
+// 			}
+// 		})
+
+		// $.ajax({
+		// 	url:"https://api.github.com/users/sunny-zz",
+		// 	success:function (data,state,xhr) {
+		// 		console.log(data,state,xhr)
+		// 		document.getElementById('name').innerHTML=data.login
+		// 	},
+		// 	method:"POST",
+		// 	error:function (error) {
+		// 		console.log(error)
+		// 		console.log("获取数据失败")
+				
+		// 	}
+		// })
+		//data代表后台传来的数据，一般只用这个
+
+console.log($)
+		// var xml=new XMLHttpRequest()
+		// 		xml.open("POST","https://cnodejs.org/api/v1/accesstoken",true)
+		// 		xml.setRequestHeader("Content-type","application/json")
+		// 		xml.send('{"accesstoken":"9948d556-1825-416f-934f-b3ce046403e3"}')
+		// 		xml.onreadystatechange=function () {
+		// 			if(xml.readyState==4 && xml.status==200){
+		// 				console.log(xml.responseText)
+		// 			}
+		// 	
+		// 		}
+		// 	var xml=new XMLHttpRequest()
+		// xml.onreadystatechange=function () {
+		// 	if(xml.readyState==4 && xml.status==200){
+		// 		var username=
+		// 		JSON.parse(xml.responseText).login
+		// 		document.getElementById('name').innerHTML=username
+		// 	}
+		//
+		// }
+		// xml.open("GET","https://api.github.com/users/sunny-zz",true)
+		// xml.send()
+
+		// var objJson="{"name":"mrsix"}"
+		//把json格式转化为对象类型
+		//JSON.stringify()
+		//JSON.parse()将json字符串转化为对象
+		// console.log(JSON.parse(objJson))
+		// var obj={name:"mrsix"}
+		// console.log(JSON.stringify(boj))
+	</script>
+</body>
+</html>

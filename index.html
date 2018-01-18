@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button onClick="a.call(this)">按钮</button>
+  <script>
+    // let a  = function(){
+    //   console.log(this)
+    // }
+    class App{
+      constructor(name){
+        this.name = name
+      }
+      say(){
+        console.log(this.name);
+      }
+      hello(){
+        console.log(this.say);
+      }
+    }
+    let a = new App('zzt')
+    a.hello()
+
+  </script>
+</body>
+</html>
