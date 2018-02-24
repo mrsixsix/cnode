@@ -1,36 +1,35 @@
-import React from 'react'
-
+import React, { Component } from 'react'
 import ShowTopics from '../ShowTopics/ShowTopics'
-import "./home.css"
 import axios from 'axios'
-class Home extends React.Component{
-state={
-  data:[],
-  tab:"all"
-}
-getData=(tab)=>{
-   axios.get(`https://cnodejs.org/api/v1/topics?tab=${tab !== 'all' ? tab : ''}`)
-  .then((res)=>{
-    this.setState({
-      data:res.data.data
+import './home.css'
+
+class Home extends Component {
+  state={
+    data:[],
+    tab:'all'
+  }
+  getData(tab){
+    axios.get(`https://cnodejs.org/api/v1/topics?tab=${tab !== 'all' ? tab : ''}`)
+    .then((res)=>{
+      this.setState({
+        data : res.data.data
+      })
     })
-  })
-  .catch((err)=>{
-    alert(err)
-  })
-}
-handleClick = (tab) => {
-	 this.getData(tab)
+    .catch((err)=>{
+      alert(err)
+    })
+  }
+  componentDidMount(){
+    this.getData('all')
+  }
+  handleClick=(tab)=>{
+    this.getData(tab)
     this.setState({
       tab:tab
     })
-    
   }
-componentDidMount(){
- this.getData("all")
-}
-render () {
- let tabs = [{
+  render() {
+    let tabs =[{
       tab:'all',
       text:'全部'
     },{
@@ -45,21 +44,23 @@ render () {
     },{
       tab:'job',
       text:'招聘'
-    },{
-      tab:'dev',
-      text:'客户端测试'
     }]
- const {data,tab}=this.state
+    const { data,tab } =this.state
     return (
-        <div>
-        	<div className="tabs">
-            {tabs.map((item,index)=>(
-              <span key={index} onClick={()=>{this.handleClick(item.tab)}} className={`${tab===item.tab&&"active"}`}>{item.text}</span>
-            ))}
-   				</div>     	
-          <ShowTopics data={data}/>
+      <div className="App">
+        <div className='tabs'>
+          {tabs.map((item,index)=>(
+            <span key={index}
+              onClick={()=>{this.handleClick(item.tab)}}
+              className={`${ tab===item.tab&&'act'}`}
+            > {item.text} </span>
+          ))}
         </div>
-    )
+
+        <ShowTopics data={data}/>
+      </div>
+    );
   }
 }
+
 export default Home

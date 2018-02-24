@@ -1,0 +1,13 @@
+.Footer{
+  width: 100%;
+  color: #000;
+}
+#footer{
+  width: 1000px;
+  margin: 0px auto;
+  padding: 50px;
+  background-color: #fff;
+}
+#footer a{
+  color: orange;
+}

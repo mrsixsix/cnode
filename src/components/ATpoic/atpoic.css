@@ -1,0 +1,57 @@
+.ATopic{
+  width: 100%;
+  height: 100%;
+  background-color: #ccc;
+  display: flex;
+
+}
+.title{
+  width: 1200px;
+  margin: 30px auto;
+  background-color: #fff;
+  padding: 20px 40px;
+}
+.reply div{
+  display: flex;
+  padding: 10px;
+}
+
+.reply img{
+  width: 80px;
+  height: 80px;
+  margin-right: 20px;
+}
+.title span{
+  margin: 0 5px;
+}
+.title>p{
+  line-height: 50px;
+  color:#8f8f8f;
+}
+.markdown-text p{
+  line-height: 30px;
+  font-size: 16px;
+}
+.markdown-text h1{
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: -100px;
+  left: 45%;
+  right: 0;
+  bottom: 0;
+  display: none;
+}
+
+ul li{
+  line-height: 30px;
+}
+h2{
+  margin-top: 30px;
+}
+.markdown-text>p>img{
+  width: 850px;
+}
+table{
+  margin-top: 20px;
+}
